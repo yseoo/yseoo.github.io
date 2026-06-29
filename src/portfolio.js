@@ -726,6 +726,16 @@ const resumeright = {
       title: ["Professional Experience"],
       data: [
         {
+          title: "AI Research Intern",
+          subtitle: "Richemont AI Lab, Lausanne, Switzerland",
+          date: "October 2024 - present",
+          content: [
+            "Developing and implementing state-of-the-art computer vision models for object detection and segmentation.",
+            "Dataset collection, annotation, and preprocessing for training and evaluation.",
+            "Collaborating with cross-functional teams to design and implement AI solutions for luxury goods.",
+          ],
+        },
+        {
           title:
             "Teaching assistant in Mathematics for Criminal Sciences students",
           subtitle: "Université de Lausanne (UNIL), Lausanne, Switzerland",
