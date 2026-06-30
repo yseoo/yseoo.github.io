@@ -12,7 +12,6 @@ import ReactGA from "react-ga";
 export const history = createHashHistory();
 history.listen((location) => {
   ReactGA.pageview(location.pathname);
-  console.log(location.pathname);
 });
 
 export default class Main extends Component {
