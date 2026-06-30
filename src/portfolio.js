@@ -12,7 +12,7 @@ const seo = {
   og: {
     title: "Killian Portfolio",
     type: "website",
-    url: "https://yseoo.github.io/",
+    url: "https://killianhinard.com/",
   },
 };
 

@@ -2,7 +2,7 @@
   "private": true,
   "name": "datasciencefolio",
   "version": "0.1.0",
-  "homepage": "https://yseoo.github.io/",
+  "homepage": "https://killianhinard.com/",
   "scripts": {
     "build": "react-scripts build",
     "predeploy": "npm run build",
