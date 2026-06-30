@@ -6,10 +6,10 @@ import Education from "../pages/EduEx/EducationComponent";
 import Contact from "../pages/contact/ContactComponent";
 import Projects from "../pages/projects/Projects";
 import { settings } from "../portfolio.js";
-import { createBrowserHistory } from "history";
+import { createHashHistory } from "history";
 
 import ReactGA from "react-ga";
-export const history = createBrowserHistory();
+export const history = createHashHistory();
 history.listen((location) => {
   ReactGA.pageview(location.pathname);
   console.log(location.pathname);
