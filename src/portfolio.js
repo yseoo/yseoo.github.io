@@ -144,61 +144,6 @@ const skills = {
       ],
     },
     {
-      title: "Robotics & Control Systems",
-      fileName: "DesignImg",
-      skills: [
-        "⚡ Designing and programming robotic systems using Python, C++, C for complex tasks and missions.",
-        "⚡ Implementing control systems and algorithms, such as PID, LQR, and MPC, for precise and efficient robot navigation and manipulation.",
-        "⚡ Integrating machine learning algorithms with robotic systems for adaptive and intelligent behavior.",
-        "⚡ Applying genetic algorithms (GAs), genetic programming (GP), and neuroevolution techniques to enhance robot learning and adaptation.",
-      ],
-      softwareSkills: [
-        {
-          skillName: "Python",
-          fontAwesomeClassname: "logos-python",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "C",
-          fontAwesomeClassname: "logos-c",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "C++",
-          fontAwesomeClassname: "simple-icons:cplusplus",
-          style: {
-            backgroundColor: "transparent",
-            color: "#00599C",
-          },
-        },
-        {
-          skillName: "MatLab",
-          fontAwesomeClassname: "devicon:matlab",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Arduino",
-          fontAwesomeClassname: "logos-arduino",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Raspberry Pi",
-          fontAwesomeClassname: "logos-raspberry-pi",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-      ],
-    },
-    {
       title: "Data Science & Analysis",
       fileName: "DataScienceImg",
       skills: [
@@ -255,6 +200,61 @@ const skills = {
         {
           skillName: "JavaScript",
           fontAwesomeClassname: "logos-javascript",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+      ],
+    },
+    {
+      title: "Robotics & Control Systems",
+      fileName: "DesignImg",
+      skills: [
+        "⚡ Designing and programming robotic systems using Python, C++, C for complex tasks and missions.",
+        "⚡ Implementing control systems and algorithms, such as PID, LQR, and MPC, for precise and efficient robot navigation and manipulation.",
+        "⚡ Integrating machine learning algorithms with robotic systems for adaptive and intelligent behavior.",
+        "⚡ Applying genetic algorithms (GAs), genetic programming (GP), and neuroevolution techniques to enhance robot learning and adaptation.",
+      ],
+      softwareSkills: [
+        {
+          skillName: "Python",
+          fontAwesomeClassname: "logos-python",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+        {
+          skillName: "C",
+          fontAwesomeClassname: "logos-c",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+        {
+          skillName: "C++",
+          fontAwesomeClassname: "simple-icons:cplusplus",
+          style: {
+            backgroundColor: "transparent",
+            color: "#00599C",
+          },
+        },
+        {
+          skillName: "MatLab",
+          fontAwesomeClassname: "devicon:matlab",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+        {
+          skillName: "Arduino",
+          fontAwesomeClassname: "logos-arduino",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+        {
+          skillName: "Raspberry Pi",
+          fontAwesomeClassname: "logos-raspberry-pi",
           style: {
             backgroundColor: "transparent",
           },
@@ -674,97 +674,47 @@ const projectcards = {
 };
 
 const resumeleft = {
-  left: {
-    title: ["Education"],
-    data: [
-      {
-        title: "MSc in Robotics with a minor in Data Science",
-        subtitle:
-          "École polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland",
-        date: "September 2022 - present",
-        content: [
-          "Technical Coursework and Projects in Machine Learning, Deep Learning, Computer Vision, Reinforcement learning, Mechanical Engineering, Multivariable Control, Automatic, Model Predictive Control, Evolutive and Genetic Algorithms, Intelligent Agent, DevOps.",
-          "Minor in Data Science with courses in Applied Data Analysis, Computer Networks, Data Visualisation, Database, Large-scale data management and analysis, Data cleaning",
-          "🔸 current GPA: 5.45/6",
-        ],
-      },
-      {
-        title: "Academic Exchange",
-        subtitle: "Royal Institute of Technology (KTH), Stockholm, Sweden",
-        date: "August 2021 - June 2022",
-        content: [
-          "Signal/Stochastic Processing, Embedded and real-time systems, Automatic Control, MEMS, Sensor based systems, Machine Learning and Neuroscience.",
-        ],
-      },
-      {
-        title: "BSc in Microengineering",
-        subtitle:
-          "École polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland",
-        date: "September 2019 - June 2022",
-        content: [
-          "Basic sciences (Physics, Linear Algebra, Calculus, Chemistry), Object Oriented Programming (C++), Experimental Statistics, Computer Science Theory, Analog Devices, Micro-Mechanical engineering, Basic of Electronics.",
-          "🔸 GPA: 5/6",
-        ],
-      },
-      {
-        title: "Baccalaureate in Science",
-        subtitle:
-          "High School, Lycée Madame de Staël, Saint-Julien-en-Genevois, France",
-        date: "September 2016 - July 2019",
-        content: [
-          "High School Diploma with a focus on Sciences (Mathematics, Physics, Chemistry, Biology).",
-          "🔸 Grade: 18.28/20, Congratulations from the jury",
-        ],
-      },
-    ],
-  },
-};
-
-const resumeright = {
-  right: [
+  left: [
     {
-      title: ["Professional Experience"],
+      title: ["Education"],
       data: [
         {
-          title: "AI Research Intern",
-          subtitle: "Richemont AI Lab, Lausanne, Switzerland",
-          date: "October 2024 - present",
+          title: "MSc in Robotics, minor in Data Science",
+          subtitle:
+            "École polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland",
+          date: "September 2022 - March 2026",
           content: [
-            "Developing and implementing state-of-the-art computer vision models for object detection and segmentation.",
-            "Dataset collection, annotation, and preprocessing for training and evaluation.",
-            "Collaborating with cross-functional teams to design and implement AI solutions for luxury goods.",
+            "Technical Coursework and Projects in Machine Learning, Deep Learning, Computer Vision, Reinforcement learning, Mechanical Engineering, Multivariable Control, Automatic, Model Predictive Control, Evolutive and Genetic Algorithms, Intelligent Agent, DevOps.",
+            "Minor in Data Science with courses in Applied Data Analysis, Computer Networks, Data Visualisation, Database, Large-scale data management and analysis, Data cleaning",
+            "🔸 GPA: 5.52/6",
           ],
         },
         {
-          title:
-            "Teaching assistant in Mathematics for Criminal Sciences students",
-          subtitle: "Université de Lausanne (UNIL), Lausanne, Switzerland",
-          date: "September 2022 - present",
+          title: "Academic Exchange",
+          subtitle: "Royal Institute of Technology (KTH), Stockholm, Sweden",
+          date: "August 2021 - June 2022",
           content: [
-            "Assist the teacher in explaining to student mathematical concept.",
-            "Help student during exercises session.",
-            "Help the teacher with examination surveillance.",
+            "Signal/Stochastic Processing, Embedded and real-time systems, Automatic Control, MEMS, Sensor based systems, Machine Learning and Neuroscience.",
           ],
         },
         {
-          title:
-            "Teaching assistant in Mathematics for Bioscience and Pharmaceutical student at UNIL",
-          subtitle: "Université de Lausanne (UNIL), Lausanne, Switzerland",
-          date: "September 2023 - present",
+          title: "BSc in Microengineering",
+          subtitle:
+            "École polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland",
+          date: "September 2019 - June 2022",
           content: [
-            "Assist the teacher in explaining to student mathematical concept.",
-            "Help student during exercises session.",
-            "Help the teacher with examination surveillance.",
+            "Basic sciences (Physics, Linear Algebra, Calculus, Chemistry), Object Oriented Programming (C++), Experimental Statistics, Computer Science Theory, Analog Devices, Micro-Mechanical engineering, Basic of Electronics.",
+            "🔸 GPA: 5/6",
           ],
         },
         {
-          title: "Laboratory assistant",
-          subtitle: "Geneva Hospital (HUG), Geneva, Switzerland",
-          date: "Summer 2022 and 2023",
+          title: "Baccalaureate in Science",
+          subtitle:
+            "High School, Lycée Madame de Staël, Saint-Julien-en-Genevois, France",
+          date: "September 2016 - July 2019",
           content: [
-            "Reception of medical samples, applying the necessary treatments before analysis",
-            "Distribution to the correct laboratories in the central laboratory building of the hospital",
-            "Preparation of laboratory equipment orders, and deliveries to the right laboratories.",
+            "High School Diploma with a focus on Sciences (Mathematics, Physics, Chemistry, Biology).",
+            "🔸 Grade: 18.28/20, Congratulations from the jury",
           ],
         },
       ],
@@ -773,9 +723,19 @@ const resumeright = {
       title: ["Extracurricular Activities"],
       data: [
         {
+          title: "Webmaster, EPFL-SIC",
+          subtitle: "EPFL Sustainable Innovation Challenge",
+          date: "September 2024 - January 2025",
+          content: [
+            "Joined as one of the founding members shortly after the association's creation, taking on the role of initial webmaster.",
+            "Designed, built and deployed the association's first website from scratch.",
+            "Handed over website ownership and maintenance to another member after a few months to focus on a concurrent internship.",
+          ],
+        },
+        {
           title: "Board Member, Webmaster ESN EPFL",
           subtitle: "Erasmus Student Network Association (ESN) of EPFL",
-          date: "January 2024 - present",
+          date: "January 2024 - July 2024",
           content: [
             "Managing of the Erasmus Student Network (ESN) website and digital resources, ensuring efficient operation and user accessibility.",
             "Contribute to the strategic leadership of the association, participating actively in decision-making processes, organizational management and recruiting process.",
@@ -791,12 +751,56 @@ const resumeright = {
             "Actively engaged in the association's life, participating in weekly meetings",
           ],
         },
+      ],
+    },
+  ],
+};
+
+const resumeright = {
+  right: [
+    {
+      title: ["Professional Experience"],
+      data: [
         {
-          title: "Member of Robopoly",
-          subtitle: "Robopoly, Robotics association of EPFL",
-          date: "September 2019 - June 2020",
+          title: "CV Research Intern",
+          subtitle:
+            "Richemont Automation and Machine Vision Lab, Buttes, Switzerland",
+          date: "September 2025 - March 2026",
           content: [
-            "Developing hands on project on the subject of robotic and embedded systems, soldering, creating PCB and 3D-printing.",
+            "Conducting a state-of-the-art review of AI-based visual anomaly detection algorithms.",
+            "Comparing selected algorithms on image datasets specific to the watchmaking domain.",
+            "Studying the solution's potential to generalize to new pieces.",
+            "Delivering the solution in line with the team's standards.",
+          ],
+        },
+        {
+          title: "AI Research Intern",
+          subtitle: "Richemont AI Lab, Lausanne, Switzerland",
+          date: "October 2024 - February 2025",
+          content: [
+            "Developing and implementing state-of-the-art computer vision models for object detection and segmentation.",
+            "Dataset collection, annotation, and preprocessing for training and evaluation.",
+            "Collaborating with cross-functional teams to design and implement AI solutions for luxury goods.",
+          ],
+        },
+        {
+          title: "Teaching assistant in Mathematics",
+          subtitle: "Université de Lausanne (UNIL), Lausanne, Switzerland",
+          date: "September 2022 - July 2024",
+          content: [
+            "Assist the teacher in explaining to student mathematical concept.",
+            "Help student during exercises session.",
+            "Help the teacher with examination surveillance.",
+          ],
+        },
+        {
+          title: "Laboratory assistant",
+          subtitle: "Geneva Hospital (HUG), Geneva, Switzerland",
+          date: "Summer 2022 and 2023",
+          content: [
+            "Reception of medical samples, applying the necessary treatments before analysis",
+            "Distribution to the correct laboratories in the central laboratory building of the hospital",
+            "Preparation of laboratory equipment orders, and deliveries to the right laboratories.",
           ],
         },
       ],
@@ -925,8 +929,8 @@ const contactPageData = {
       "If you have any questions or would like to discuss potential opportunities, please don't hesitate to contact me. I'm always open to new connections and look forward to hearing from you!",
   },
   addressSection: {
-    title: "Current Address",
-    subtitle: "Lausanne, Switzerland",
+    title: "",
+    subtitle: "",
   },
   phoneSection: {
     title: "",

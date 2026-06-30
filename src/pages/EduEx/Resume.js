@@ -11,11 +11,11 @@ export default function Resume() {
           <div className="heading-div">
             <div>
               <Col md={6} className="resume-left">
-                {resumeleft.left.title.map((head) => {
+                {resumeleft.left.map((head) => {
                   return (
                     <>
-                      <h3 className="resume-title">{head}</h3>
-                      {resumeleft.left.data.map((res) => {
+                      <h3 className="resume-title">{head.title}</h3>
+                      {head.data.map((res) => {
                         return (
                           <Resumecontent
                             title={res.title}
