@@ -1,0 +1,11 @@
+.tag {
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--step--1);
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--snow-0) 5%, transparent);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}

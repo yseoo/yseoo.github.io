@@ -1,0 +1,64 @@
+.svg {
+  width: 100%;
+  height: auto;
+  max-width: 440px;
+  display: block;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+@keyframes evFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.env {
+  animation: evFloat 4s ease-in-out infinite;
+}
+
+/* Paper plane flies along an arc out of the envelope, on a loop. */
+.plane {
+  offset-path: path("M206,170 C 250,132 320,120 372,58");
+  offset-rotate: auto;
+  animation: evFly 3.4s ease-in-out infinite;
+}
+
+@keyframes evFly {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes evSparkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: evSparkle 2.4s ease-in-out infinite;
+}

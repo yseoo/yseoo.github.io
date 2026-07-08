@@ -1,0 +1,56 @@
+.svg {
+  width: 100%;
+  height: auto;
+  max-width: 440px;
+  display: block;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+@keyframes gcFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.cap {
+  animation: gcFloat 4s ease-in-out infinite;
+}
+
+@keyframes gcSway {
+  0%,
+  100% {
+    transform: rotate(7deg);
+  }
+  50% {
+    transform: rotate(-7deg);
+  }
+}
+
+.tassel {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: gcSway 3.2s ease-in-out infinite;
+}
+
+@keyframes gcSparkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gcSparkle 2.4s ease-in-out infinite;
+}

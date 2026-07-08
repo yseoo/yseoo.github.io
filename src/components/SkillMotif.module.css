@@ -1,0 +1,97 @@
+.motif {
+  width: 100%;
+  height: 100%;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Neural network: nodes pulse, signals travel along edges. */
+@keyframes skPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.28);
+  }
+}
+
+.nnNode {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: skPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes skSignal {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.nnSignal {
+  offset-rotate: 0deg;
+  animation: skSignal 2.6s ease-in-out infinite;
+}
+
+/* Data chart: bars breathe. */
+@keyframes skBar {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.dbBar {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: skBar 2.8s ease-in-out infinite;
+}
+
+/* Robot arm: shoulder and elbow reach. */
+@keyframes armShoulder {
+  0%,
+  100% {
+    transform: rotate(-16deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes armElbow {
+  0%,
+  100% {
+    transform: rotate(32deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+.armShoulder {
+  animation: armShoulder 3.6s ease-in-out infinite;
+}
+
+.armElbow {
+  animation: armElbow 3.6s ease-in-out infinite;
+}
