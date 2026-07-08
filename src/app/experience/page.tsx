@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Timeline from "@/components/Timeline";
 import Reveal from "@/components/Reveal";
+import GraduationCap from "@/components/GraduationCap";
 import { experience, education, extracurricular } from "@/content/resume";
+import styles from "./experience.module.css";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -12,20 +14,34 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <div className="section container">
-      <Reveal>
-        <div className="section-head">
-          <p className="eyebrow">Background</p>
-          <h1>Experience &amp; education</h1>
-          <p className="section-lead">
-            A research-focused path across computer vision, robotics, and data
-            science — from EPFL to industry labs.
-          </p>
+      <div className={styles.header}>
+        <Reveal>
+          <div className="section-head">
+            <p className="eyebrow">Career &amp; studies</p>
+            <h1>Experience &amp; education</h1>
+            <p className="section-lead">
+              My academic background, professional experience, and the activities
+              I&apos;ve been involved in along the way.
+            </p>
+          </div>
+        </Reveal>
+        <div className={styles.motif} aria-hidden="true">
+          <GraduationCap />
         </div>
-      </Reveal>
+      </div>
 
-      <Timeline section={experience} />
-      <Timeline section={education} />
-      <Timeline section={extracurricular} />
+      <div className={styles.columns}>
+        <div className={styles.col}>
+          <Timeline section={education} icon="mdi:school-outline" />
+          <Timeline
+            section={extracurricular}
+            icon="mdi:account-group-outline"
+          />
+        </div>
+        <div className={styles.col}>
+          <Timeline section={experience} icon="mdi:briefcase-outline" />
+        </div>
+      </div>
     </div>
   );
 }

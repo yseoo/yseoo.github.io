@@ -1,15 +1,23 @@
 .block {
-  margin-bottom: var(--space-24);
+  margin-bottom: var(--space-16);
 }
 .block:last-child {
   margin-bottom: 0;
 }
 
 .heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   font-size: var(--step-2);
   margin-bottom: var(--space-8);
   padding-bottom: var(--space-3);
   border-bottom: 1px solid var(--border);
+}
+
+.headingIcon {
+  color: var(--frost-blue);
+  flex-shrink: 0;
 }
 
 .rail {
@@ -30,7 +38,7 @@
   width: 1px;
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--frost-cyan) 50%, transparent),
+    color-mix(in srgb, var(--frost-blue) 55%, transparent),
     var(--border)
   );
 }
@@ -42,13 +50,13 @@
 /* Node dot on the rail. */
 .node {
   position: absolute;
-  left: calc(-1 * var(--space-8) + 3px);
+  left: calc(-1 * var(--space-8) + 2px);
   top: 22px;
-  width: 9px;
-  height: 9px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background: var(--frost-cyan);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--frost-cyan) 18%, transparent);
+  background: var(--frost-blue);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--frost-blue) 18%, transparent);
 }
 
 .card {
@@ -76,14 +84,17 @@
 
 .date {
   font-size: var(--step--1);
-  color: var(--frost-cyan);
+  color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 .org {
   margin-top: var(--space-1);
-  color: var(--text);
+  font-size: var(--step-0);
+}
+.orgName {
+  color: var(--frost-blue);
   font-weight: 600;
 }
 .dot {
@@ -91,22 +102,40 @@
 }
 .loc {
   color: var(--text-muted);
-  font-weight: 400;
 }
 
 .points {
   margin-top: var(--space-4);
-  padding-left: var(--space-4);
+  list-style: none;
   display: grid;
   gap: var(--space-2);
+}
+
+.points li {
+  position: relative;
+  padding-left: var(--space-5, 1.25rem);
   color: var(--text-body);
   font-size: var(--step-0);
+  line-height: 1.55;
 }
-.points li {
-  padding-left: var(--space-2);
+.points li::before {
+  content: "‣";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
 }
-.points li::marker {
-  color: var(--frost-blue);
+
+/* GPA / grade highlight. */
+.stat {
+  color: var(--text);
+  font-weight: 600;
+}
+.stat::before {
+  content: "◆";
+  font-size: 0.7em;
+  top: 0.15em;
+  color: var(--aurora-orange);
 }
 
 @media (max-width: 560px) {
@@ -114,6 +143,6 @@
     padding-left: var(--space-6);
   }
   .node {
-    left: calc(-1 * var(--space-6) + 3px);
+    left: calc(-1 * var(--space-6) + 2px);
   }
 }

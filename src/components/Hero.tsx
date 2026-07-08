@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import Constellation from "./Constellation";
 import { profile } from "@/content/profile";
@@ -53,22 +54,44 @@ export default function Hero() {
             {profile.tagline}
           </motion.p>
 
+          <motion.p className={styles.bio} {...childProps}>
+            {profile.bio}
+          </motion.p>
+
           <motion.div className={styles.actions} {...childProps}>
-            <Link href="/projects" className={styles.primaryBtn}>
-              View projects
-            </Link>
-            <Link href="/contact" className={styles.ghostBtn}>
+            <Link href="/contact" className={styles.primaryBtn}>
               Get in touch
+            </Link>
+            <Link href="/experience" className={styles.ghostBtn}>
+              View experience
+            </Link>
+            <Link href="/projects" className={styles.ghostBtn}>
+              View projects
             </Link>
           </motion.div>
 
           <motion.div className={styles.socials} {...childProps}>
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>
             {profile.socials.map((s) => (
-              <a key={s.href} href={s.href} target="_blank" rel="noreferrer">
+              <a
+                key={s.href}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.socialPill}
+              >
+                <Icon icon={s.icon} width={18} height={18} aria-hidden="true" />
                 {s.label}
               </a>
             ))}
+            <a href={`mailto:${profile.email}`} className={styles.socialPill}>
+              <Icon
+                icon="mdi:email-outline"
+                width={18}
+                height={18}
+                aria-hidden="true"
+              />
+              Email
+            </a>
           </motion.div>
         </div>
 
@@ -78,8 +101,17 @@ export default function Hero() {
           <dl className={styles.glance}>
             {profile.highlights.map((h) => (
               <div key={h.label} className={styles.glanceRow}>
-                <dt>{h.label}</dt>
-                <dd>{h.value}</dd>
+                <Icon
+                  icon={h.icon}
+                  width={22}
+                  height={22}
+                  className={styles.glanceIcon}
+                  aria-hidden="true"
+                />
+                <div>
+                  <dt>{h.label}</dt>
+                  <dd>{h.value}</dd>
+                </div>
               </div>
             ))}
           </dl>

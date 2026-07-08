@@ -6,21 +6,29 @@
 // A `type` describes the shape of a value. TypeScript then checks every use of
 // it, so a typo like `highlight.lable` becomes an error while you type.
 export type Highlight = {
+  icon: string; // Iconify name
   label: string;
   value: string;
 };
 
+// One tech logo shown in a skill card. `icon` is an Iconify name (browse at
+// https://icon-sets.iconify.design); `color` is only needed for monochrome icons.
+export type TechLogo = {
+  name: string;
+  icon: string;
+  color?: string;
+};
+
 export type SkillGroup = {
   title: string;
-  summary: string;
-  tools: string[];
-  // Longer bullets kept from the old site; available if we want more detail.
+  logos: TechLogo[];
   points: string[];
 };
 
 export type SocialLink = {
   label: string;
   href: string;
+  icon: string; // Iconify name
 };
 
 export const profile = {
@@ -36,31 +44,45 @@ export const profile = {
 
   // "At a glance" card in the hero.
   highlights: [
-    { label: "Now", value: "Open to work" },
-    { label: "Education", value: "MSc Robotics & Data Science, EPFL" },
-    { label: "Based in", value: "Geneva, Switzerland" },
-    { label: "Focus", value: "Computer Vision · Machine Learning" },
+    { icon: "mdi:briefcase-outline", label: "Now", value: "Open to work" },
+    {
+      icon: "mdi:school-outline",
+      label: "Education",
+      value: "MSc Robotics & Data Science @ EPFL",
+    },
+    {
+      icon: "mdi:map-marker-outline",
+      label: "Based in",
+      value: "Geneva, Switzerland",
+    },
+    {
+      icon: "mdi:eye-outline",
+      label: "Focus",
+      value: "Computer Vision · Machine Learning",
+    },
   ] satisfies Highlight[],
 
   email: "killian.hd@gmail.com",
   socials: [
-    { label: "GitHub", href: "https://github.com/yseoo" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/killian-hinard/" },
+    { label: "GitHub", href: "https://github.com/yseoo", icon: "mdi:github" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/killian-hinard/",
+      icon: "mdi:linkedin",
+    },
   ] satisfies SocialLink[],
 
   skills: [
     {
       title: "Machine Learning & Computer Vision",
-      summary:
-        "Designing and shipping real-time image and video models — detection, segmentation, and action recognition — from research to deployment.",
-      tools: [
-        "PyTorch",
-        "TensorFlow",
-        "OpenCV",
-        "Python",
-        "NumPy",
-        "scikit-learn",
-        "CUDA",
+      logos: [
+        { name: "PyTorch", icon: "devicon:pytorch" },
+        { name: "TensorFlow", icon: "logos:tensorflow" },
+        { name: "Python", icon: "logos:python" },
+        { name: "NumPy", icon: "logos:numpy" },
+        { name: "OpenCV", icon: "logos:opencv" },
+        { name: "scikit-learn", icon: "devicon:scikitlearn" },
+        { name: "CUDA", icon: "vscode-icons:file-type-cuda" },
       ],
       points: [
         "Designing and implementing computer-vision models with OpenCV, PyTorch and core Python libraries for real-time image and video analysis.",
@@ -71,9 +93,15 @@ export const profile = {
     },
     {
       title: "Data Science & Analysis",
-      summary:
-        "Turning large, messy datasets into insight — from statistical analysis and feature engineering to big-data pipelines.",
-      tools: ["Python", "SQL", "Pandas", "NumPy", "Spark", "Hadoop", "JavaScript"],
+      logos: [
+        { name: "Python", icon: "logos:python" },
+        { name: "Pandas", icon: "simple-icons:pandas", color: "#5a9bd4" },
+        { name: "NumPy", icon: "logos:numpy" },
+        { name: "SQL", icon: "tabler:sql", color: "#f2a93b" },
+        { name: "Hadoop", icon: "logos:hadoop" },
+        { name: "Spark", icon: "logos:apache-spark" },
+        { name: "JavaScript", icon: "logos:javascript" },
+      ],
       points: [
         "Proficient in Python and SQL for data manipulation, analysis, and visualization.",
         "Skilled in statistical analysis, hypothesis testing, and experimental design.",
@@ -83,9 +111,14 @@ export const profile = {
     },
     {
       title: "Robotics & Control Systems",
-      summary:
-        "Programming robots and control algorithms, and blending learning-based methods with classical control for adaptive behavior.",
-      tools: ["Python", "C++", "C", "MATLAB", "Arduino", "Raspberry Pi"],
+      logos: [
+        { name: "Python", icon: "logos:python" },
+        { name: "C", icon: "logos:c" },
+        { name: "C++", icon: "simple-icons:cplusplus", color: "#649ad2" },
+        { name: "MATLAB", icon: "devicon:matlab" },
+        { name: "Arduino", icon: "logos:arduino" },
+        { name: "Raspberry Pi", icon: "logos:raspberry-pi" },
+      ],
       points: [
         "Designing and programming robotic systems in Python, C++, and C for complex tasks.",
         "Implementing control algorithms — PID, LQR, MPC — for precise navigation and manipulation.",

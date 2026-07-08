@@ -1,68 +1,46 @@
-.grid {
+.header {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: var(--space-6);
-  align-items: start;
-}
-
-.emailCard {
-  padding: var(--space-8);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5, 1.25rem);
-}
-
-.label {
-  font-size: var(--step--1);
-  letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.emailRow {
-  display: flex;
-  flex-wrap: wrap;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
 }
 
-.email {
-  font-size: var(--step-2);
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: var(--tracking-tight);
-  word-break: break-all;
-  transition: color var(--dur-fast) var(--ease);
-}
-.email:hover {
-  color: var(--frost-cyan);
+.motif {
+  width: 100%;
 }
 
-.primaryBtn {
-  align-self: flex-start;
-  margin-top: var(--space-2);
+.dropBtn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--space-8);
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-pill);
   font-weight: 600;
+  font-size: var(--step-0);
   color: var(--night-0);
   background: linear-gradient(135deg, var(--frost-cyan), var(--frost-blue));
   box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--frost-cyan) 80%, transparent);
-  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur) var(--ease);
+  transition:
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur) var(--ease);
 }
-.primaryBtn:hover {
+.dropBtn:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 34px -12px color-mix(in srgb, var(--frost-cyan) 90%, transparent);
 }
 
-.channels {
+/* 2x2 grid of contact channels */
+.grid {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
 }
 
-.channel {
-  position: relative;
-  display: grid;
-  gap: var(--space-1);
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
   padding: var(--space-5, 1.25rem) var(--space-6);
   transition:
     transform var(--dur) var(--ease),
@@ -70,39 +48,60 @@
     box-shadow var(--dur) var(--ease);
 }
 
-a.channel:hover {
+/* Links lift on hover; the static "Based in" card doesn't. */
+a.card:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--frost-cyan) 40%, transparent);
   box-shadow: var(--glass-glow);
 }
-
-.channelLabel {
-  font-weight: 700;
-  color: var(--text);
-  font-size: var(--step-1);
+.plain {
+  opacity: 0.9;
 }
 
-.channelHint {
-  color: var(--text-muted);
-  font-size: var(--step--1);
-}
-
-.arrow {
-  position: absolute;
-  top: var(--space-5, 1.25rem);
-  right: var(--space-6);
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   color: var(--frost-cyan);
-  transition: transform var(--dur) var(--ease);
-}
-a.channel:hover .arrow {
-  transform: translate(2px, -2px);
+  background: color-mix(in srgb, var(--frost-cyan) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--frost-cyan) 20%, transparent);
 }
 
-.location {
-  opacity: 0.85;
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
-@media (max-width: 780px) {
+.cLabel {
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cValue {
+  color: var(--text);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+  .motif {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
   .grid {
     grid-template-columns: 1fr;
   }

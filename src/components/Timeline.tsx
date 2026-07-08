@@ -1,16 +1,34 @@
 import type { ResumeSection } from "@/content/resume";
 import Reveal from "./Reveal";
+import Ico from "./Ico";
 import styles from "./Timeline.module.css";
 
 /**
  * Timeline — renders one resume section (Education, Experience, …) as a vertical
- * rail of glass cards. Server Component: static content, no JS. Each card is
- * wrapped in <Reveal> so it animates in as you scroll.
+ * rail of glass cards. Server Component. Each card is wrapped in <Reveal> so it
+ * animates in as you scroll. An optional `icon` (Iconify name) sits by the title.
  */
-export default function Timeline({ section }: { section: ResumeSection }) {
+export default function Timeline({
+  section,
+  icon,
+}: {
+  section: ResumeSection;
+  icon?: string;
+}) {
   return (
     <section className={styles.block} aria-label={section.title}>
-      <h2 className={styles.heading}>{section.title}</h2>
+      <h2 className={styles.heading}>
+        {icon && (
+          <Ico
+            icon={icon}
+            width={24}
+            height={24}
+            className={styles.headingIcon}
+            aria-hidden="true"
+          />
+        )}
+        {section.title}
+      </h2>
 
       <ol className={styles.rail}>
         {section.items.map((item, i) => (
@@ -23,13 +41,20 @@ export default function Timeline({ section }: { section: ResumeSection }) {
                   <span className={styles.date}>{item.date}</span>
                 </header>
                 <p className={styles.org}>
-                  {item.org} <span className={styles.dot}>·</span>{" "}
+                  <span className={styles.orgName}>{item.org}</span>
+                  <span className={styles.dot}> · </span>
                   <span className={styles.loc}>{item.location}</span>
                 </p>
                 <ul className={styles.points}>
-                  {item.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
+                  {item.points.map((point) => {
+                    // GPA / grade lines get a highlighted orange diamond marker.
+                    const isStat = /^(GPA|Grade)\b/.test(point);
+                    return (
+                      <li key={point} className={isStat ? styles.stat : undefined}>
+                        {point}
+                      </li>
+                    );
+                  })}
                 </ul>
               </article>
             </Reveal>

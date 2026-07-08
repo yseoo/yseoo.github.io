@@ -33,6 +33,8 @@
   --aurora-green: #a3be8c;
   --aurora-purple: #b48ead;
   --aurora-red: #bf616a;
+  --aurora-orange: #d08770;
+  --aurora-yellow: #ebcb8b;
 
   /* ---- Semantic aliases (prefer these in components) ---- */
   --bg: var(--night-0);

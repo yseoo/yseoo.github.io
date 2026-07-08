@@ -2,19 +2,26 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { projects, CATEGORIES, type Category } from "@/content/projects";
+import {
+  projects,
+  CATEGORIES,
+  type Category,
+  type Project,
+} from "@/content/projects";
 import ProjectCard from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
 import styles from "./ProjectsGrid.module.css";
 
 type Filter = Category | "All";
 const FILTERS: Filter[] = ["All", ...CATEGORIES];
 
 export default function ProjectsGrid() {
-  // The single piece of state: which filter is selected. Changing it re-renders.
+  // Which filter is selected (drives the visible list).
   const [active, setActive] = useState<Filter>("All");
+  // Which project's modal is open (null = none).
+  const [selected, setSelected] = useState<Project | null>(null);
   const reduceMotion = useReducedMotion();
 
-  // The visible list is DERIVED from state — not stored separately.
   const visible =
     active === "All"
       ? projects
@@ -53,11 +60,24 @@ export default function ProjectsGrid() {
               exit={reduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              <ProjectCard project={project} />
+              <ProjectCard
+                project={project}
+                onOpen={() => setSelected(project)}
+              />
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {/* Detail modal. AnimatePresence lets it animate out on close. */}
+      <AnimatePresence>
+        {selected && (
+          <ProjectModal
+            project={selected}
+            onClose={() => setSelected(null)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

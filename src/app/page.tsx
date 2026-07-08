@@ -17,8 +17,10 @@ export default function Home() {
         <Reveal>
           <div className="section-head">
             <p className="eyebrow">What I do</p>
-            <h2 id="skills-heading">Skills &amp; focus areas</h2>
-            <p className="section-lead">{profile.bio}</p>
+            <h2 id="skills-heading">Skills</h2>
+            <p className="section-lead">
+              The areas I work across, and the tools I reach for in each.
+            </p>
           </div>
         </Reveal>
 
