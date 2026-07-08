@@ -1,0 +1,109 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.emailCard {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5, 1.25rem);
+}
+
+.label {
+  font-size: var(--step--1);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.email {
+  font-size: var(--step-2);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: var(--tracking-tight);
+  word-break: break-all;
+  transition: color var(--dur-fast) var(--ease);
+}
+.email:hover {
+  color: var(--frost-cyan);
+}
+
+.primaryBtn {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  color: var(--night-0);
+  background: linear-gradient(135deg, var(--frost-cyan), var(--frost-blue));
+  box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--frost-cyan) 80%, transparent);
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -12px color-mix(in srgb, var(--frost-cyan) 90%, transparent);
+}
+
+.channels {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.channel {
+  position: relative;
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-5, 1.25rem) var(--space-6);
+  transition:
+    transform var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+a.channel:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--frost-cyan) 40%, transparent);
+  box-shadow: var(--glass-glow);
+}
+
+.channelLabel {
+  font-weight: 700;
+  color: var(--text);
+  font-size: var(--step-1);
+}
+
+.channelHint {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.arrow {
+  position: absolute;
+  top: var(--space-5, 1.25rem);
+  right: var(--space-6);
+  color: var(--frost-cyan);
+  transition: transform var(--dur) var(--ease);
+}
+a.channel:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+.location {
+  opacity: 0.85;
+}
+
+@media (max-width: 780px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

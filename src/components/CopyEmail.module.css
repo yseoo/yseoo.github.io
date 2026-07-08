@@ -1,0 +1,24 @@
+.btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--snow-0) 5%, transparent);
+  color: var(--text);
+  font-size: var(--step--1);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--frost-cyan) 45%, transparent);
+}
+
+.btn[data-copied="true"] {
+  color: var(--night-0);
+  background: var(--aurora-green);
+  border-color: var(--aurora-green);
+}

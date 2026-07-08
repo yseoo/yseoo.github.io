@@ -1,0 +1,56 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--snow-0) 3%, transparent);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.filter:hover {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--frost-cyan) 40%, transparent);
+}
+
+.filter[data-active="true"] {
+  color: var(--night-0);
+  background: var(--frost-cyan);
+  border-color: var(--frost-cyan);
+}
+
+.count {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+/* Ensure the motion wrapper stretches so cards share equal height per row. */
+.grid > * {
+  display: flex;
+}
+.grid > * > * {
+  width: 100%;
+}
