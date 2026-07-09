@@ -123,25 +123,6 @@
   gap: var(--space-3);
 }
 
-.link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-pill);
-  border: 1px solid color-mix(in srgb, var(--frost-cyan) 40%, transparent);
-  color: var(--frost-cyan);
-  font-size: var(--step--1);
-  font-weight: 600;
-  transition:
-    background var(--dur-fast) var(--ease),
-    transform var(--dur-fast) var(--ease);
-}
-.link:hover {
-  background: color-mix(in srgb, var(--frost-cyan) 14%, transparent);
-  transform: translateY(-2px);
-}
-
 @media (max-width: 560px) {
   .body {
     padding: var(--space-6);

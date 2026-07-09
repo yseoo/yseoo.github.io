@@ -53,15 +53,21 @@ export default function ContactPage() {
         <Reveal>
           <div className="section-head">
             <p className="eyebrow">Get in touch</p>
-            <h1>Contact Me</h1>
+            <h1 className="gradient-text">Let&apos;s Talk!</h1>
             <p className="section-lead">
               If you have any questions or would like to discuss potential
               opportunities, please don&apos;t hesitate to contact me. I&apos;m
               always open to new connections and look forward to hearing from
               you!
             </p>
-            <a href={`mailto:${profile.email}`} className={styles.dropBtn}>
+            <a
+              href={`mailto:${profile.email}`}
+              className={`btn btn-primary ${styles.dropBtn}`}
+            >
               Drop a mail
+              <span className="btn-arrow" aria-hidden="true">
+                →
+              </span>
             </a>
           </div>
         </Reveal>

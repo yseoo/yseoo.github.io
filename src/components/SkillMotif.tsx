@@ -2,9 +2,9 @@ import styles from "./SkillMotif.module.css";
 
 /**
  * SkillMotif — the animated header for a skill card. Pure SVG animated with CSS
- * (a Server Component: no JS shipped). The motif is chosen from the card title,
- * mirroring the old site: data science -> bar chart, robotics -> robot arm,
- * everything else (ML / computer vision) -> neural network.
+ * (a Server Component). The motif is chosen from the card title: data science
+ * -> bar chart, robotics -> robot arm, everything else (ML / CV) -> neural net.
+ * Colors follow the Navy + Ember palette (electric blue with amber/orange sparks).
  */
 function categoryType(title: string): "ml" | "data" | "robotics" {
   const t = title.toLowerCase();
@@ -13,7 +13,7 @@ function categoryType(title: string): "ml" | "data" | "robotics" {
   return "ml";
 }
 
-// ML / Computer Vision — pulsing neural network with travelling signals.
+// ML / Computer Vision — pulsing neural network with a warm signal travelling.
 function NeuralNet() {
   const L1: [number, number][] = [
     [78, 34],
@@ -33,7 +33,7 @@ function NeuralNet() {
   L1.forEach((a) => L2.forEach((b) => edges.push([a, b])));
   L2.forEach((a) => L3.forEach((b) => edges.push([a, b])));
   const nodes = [...L1, ...L2, ...L3];
-  const colors = ["#7aa2d6", "#88c0d0"];
+  const colors = ["#7aa2ff", "#3b82f6"];
   const signals = [
     "path('M78,60 L150,30')",
     "path('M150,90 L222,74')",
@@ -49,7 +49,7 @@ function NeuralNet() {
           y1={a[1]}
           x2={b[0]}
           y2={b[1]}
-          stroke="#7aa2d6"
+          stroke="#7aa2ff"
           strokeWidth="1"
           opacity="0.22"
         />
@@ -70,7 +70,7 @@ function NeuralNet() {
           key={`s${i}`}
           className={styles.nnSignal}
           r="3"
-          fill="#eceff4"
+          fill="#f59e0b"
           style={{ offsetPath: path, animationDelay: `${(i * 0.8).toFixed(2)}s` }}
         />
       ))}
@@ -78,7 +78,7 @@ function NeuralNet() {
   );
 }
 
-// Data Science — bars rising and falling like live data.
+// Data Science — bars breathing, blue with amber highlights.
 function DataChart() {
   const bars: [number, number][] = [
     [66, 46],
@@ -88,7 +88,7 @@ function DataChart() {
     [186, 54],
     [216, 66],
   ];
-  const colors = ["#7aa2d6", "#88c0d0"];
+  const colors = ["#7aa2ff", "#3b82f6", "#f59e0b"];
 
   return (
     <svg viewBox="0 0 300 120" className={styles.svg} aria-hidden="true">
@@ -97,7 +97,7 @@ function DataChart() {
         y1="100"
         x2="248"
         y2="100"
-        stroke="#9aa5b8"
+        stroke="#98a2c2"
         strokeWidth="1.5"
         opacity="0.5"
       />
@@ -110,7 +110,7 @@ function DataChart() {
           width="18"
           height={h}
           rx="3"
-          fill={colors[i % 2]}
+          fill={colors[i % 3]}
           style={{ animationDelay: `${(i * 0.22).toFixed(2)}s` }}
         />
       ))}
@@ -118,7 +118,7 @@ function DataChart() {
   );
 }
 
-// Robotics & Control — an articulated arm that reaches.
+// Robotics & Control — an articulated arm that reaches (blue arm, ember forearm).
 function RobotArm() {
   return (
     <svg viewBox="0 0 300 120" className={styles.svg} aria-hidden="true">
@@ -127,39 +127,39 @@ function RobotArm() {
         y1="112"
         x2="180"
         y2="112"
-        stroke="#9aa5b8"
+        stroke="#98a2c2"
         strokeWidth="2"
         opacity="0.4"
       />
-      <rect x="136" y="102" width="28" height="10" rx="2" fill="#5e81ac" />
+      <rect x="136" y="102" width="28" height="10" rx="2" fill="#6366f1" />
       <g className={styles.armShoulder} style={{ transformOrigin: "150px 100px" }}>
         <line
           x1="150"
           y1="100"
           x2="150"
           y2="62"
-          stroke="#7aa2d6"
+          stroke="#7aa2ff"
           strokeWidth="7"
           strokeLinecap="round"
         />
-        <circle cx="150" cy="100" r="5.5" fill="#88c0d0" />
+        <circle cx="150" cy="100" r="5.5" fill="#3b82f6" />
         <g className={styles.armElbow} style={{ transformOrigin: "150px 62px" }}>
           <line
             x1="150"
             y1="62"
             x2="150"
             y2="30"
-            stroke="#7aa2d6"
+            stroke="#f59e0b"
             strokeWidth="6"
             strokeLinecap="round"
           />
-          <circle cx="150" cy="62" r="4.5" fill="#88c0d0" />
+          <circle cx="150" cy="62" r="4.5" fill="#f97316" />
           <line
             x1="150"
             y1="30"
             x2="141"
             y2="21"
-            stroke="#88c0d0"
+            stroke="#f97316"
             strokeWidth="3"
             strokeLinecap="round"
           />
@@ -168,7 +168,7 @@ function RobotArm() {
             y1="30"
             x2="159"
             y2="21"
-            stroke="#88c0d0"
+            stroke="#f97316"
             strokeWidth="3"
             strokeLinecap="round"
           />

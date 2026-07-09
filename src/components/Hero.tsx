@@ -10,14 +10,14 @@ import styles from "./Hero.module.css";
 // Variants: the parent staggers its children; each child rises + fades in.
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.11, delayChildren: 0.05 } },
 };
 const item: Variants = {
   hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -46,7 +46,7 @@ export default function Hero() {
             {profile.name}
           </motion.h1>
 
-          <motion.p className={styles.role} {...childProps}>
+          <motion.p className={`${styles.role} gradient-text`} {...childProps}>
             {profile.role}
           </motion.p>
 
@@ -59,14 +59,23 @@ export default function Hero() {
           </motion.p>
 
           <motion.div className={styles.actions} {...childProps}>
-            <Link href="/contact" className={styles.primaryBtn}>
+            <Link href="/contact" className="btn btn-primary">
               Get in touch
+              <span className="btn-arrow" aria-hidden="true">
+                →
+              </span>
             </Link>
-            <Link href="/experience" className={styles.ghostBtn}>
+            <Link href="/experience" className="btn btn-ghost">
               View experience
+              <span className="btn-arrow" aria-hidden="true">
+                →
+              </span>
             </Link>
-            <Link href="/projects" className={styles.ghostBtn}>
+            <Link href="/projects" className="btn btn-ghost">
               View projects
+              <span className="btn-arrow" aria-hidden="true">
+                →
+              </span>
             </Link>
           </motion.div>
 
@@ -79,17 +88,21 @@ export default function Hero() {
                 rel="noreferrer"
                 className={styles.socialPill}
               >
-                <Icon icon={s.icon} width={18} height={18} aria-hidden="true" />
+                <span className={styles.socialIcon}>
+                  <Icon icon={s.icon} width={18} height={18} aria-hidden="true" />
+                </span>
                 {s.label}
               </a>
             ))}
             <a href={`mailto:${profile.email}`} className={styles.socialPill}>
-              <Icon
-                icon="mdi:email-outline"
-                width={18}
-                height={18}
-                aria-hidden="true"
-              />
+              <span className={styles.socialIcon}>
+                <Icon
+                  icon="mdi:email-outline"
+                  width={18}
+                  height={18}
+                  aria-hidden="true"
+                />
+              </span>
               Email
             </a>
           </motion.div>

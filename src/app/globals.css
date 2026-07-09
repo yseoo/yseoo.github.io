@@ -40,15 +40,46 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(
-      60vw 60vw at 12% -10%,
-      color-mix(in srgb, var(--frost-deep) 22%, transparent),
-      transparent 60%
+      60% 55% at 50% -12%,
+      rgba(37, 99, 235, 0.3),
+      transparent 70%
     ),
     radial-gradient(
-      50vw 50vw at 100% 10%,
-      color-mix(in srgb, var(--frost-cyan) 12%, transparent),
-      transparent 55%
+      48% 48% at 12% 88%,
+      rgba(59, 130, 246, 0.16),
+      transparent 65%
+    ),
+    radial-gradient(
+      50% 50% at 92% 42%,
+      rgba(249, 115, 22, 0.15),
+      transparent 62%
+    ),
+    radial-gradient(
+      40% 40% at 78% 92%,
+      rgba(245, 158, 11, 0.08),
+      transparent 60%
     );
+}
+
+/* The signature blue -> ember gradient, for page titles and the hero role. */
+.gradient-text {
+  /* A vertical light->dark sheen layered OVER the color gradient gives the
+     colored titles the same metallic reflection as the silver ones, while
+     keeping their blue->ember hues. Drop-shadow lifts them slightly forward. */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 255, 255, 0) 55%,
+      rgba(8, 12, 24, 0.22) 100%
+    ),
+    var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* same clean lift as the silver titles — no glow, just crisp depth */
+  filter: drop-shadow(0 6px 16px rgba(8, 12, 24, 0.55));
 }
 
 /* ---------- Typography ---------- */
@@ -71,6 +102,17 @@ h2 {
 }
 h3 {
   font-size: var(--step-2);
+}
+
+/* Titles: polished-silver fill + a soft lift so they sit slightly forward.
+   (Colored titles override the fill via .gradient-text but keep the lift.) */
+h1,
+h2 {
+  background: linear-gradient(180deg, #ffffff 0%, #e6eefb 42%, #aebdd8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 6px 16px rgba(8, 12, 24, 0.55));
 }
 
 p {
@@ -124,11 +166,12 @@ a {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  font-family: var(--font-mono);
   font-size: var(--step--1);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--frost-blue);
 }
 
 /* The core glass surface. Compose it: <div class="glass"> ... */
@@ -160,6 +203,129 @@ a {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+/* ---------- Buttons ----------
+   Shared button system used across the site. Compose:
+   <a class="btn btn-primary"> for the main call to action,
+   <a class="btn btn-ghost"> for secondary/navigation actions,
+   add btn-sm for compact ones, and a <span class="btn-arrow">→</span> to slide. */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.65rem 1.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: var(--step-0);
+  line-height: 1.15;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn-sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--step--1);
+}
+
+/* Arrow is hidden until hover, then slides + expands in. The negative margin
+   cancels the flex gap so there's no dangling space while it's collapsed. */
+.btn-arrow {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  margin-left: calc(-1 * var(--space-2));
+  transform: translateX(-4px);
+  transition:
+    max-width var(--dur) var(--ease),
+    opacity var(--dur) var(--ease),
+    margin-left var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+.btn:hover .btn-arrow,
+.btn:focus-visible .btn-arrow {
+  max-width: 1.2em;
+  opacity: 1;
+  margin-left: 0;
+  transform: translateX(0);
+}
+
+/* Primary: theme gradient that shifts warmer + a sheen that sweeps across. */
+.btn-primary {
+  color: var(--night-0);
+  /* Metallic blue: a near-white highlight band over the blue base that sweeps
+     across on hover, for a polished, reflective sheen. */
+  background: linear-gradient(
+    115deg,
+    #4f86ef 0%,
+    var(--frost-cyan) 32%,
+    #dceeff 50%,
+    var(--frost-cyan) 68%,
+    #3373e6 100%
+  );
+  background-size: 210% 100%;
+  background-position: 0% 0;
+  box-shadow: 0 10px 28px -14px color-mix(in srgb, var(--frost-cyan) 85%, transparent);
+  transition:
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background-position var(--dur-slow) var(--ease);
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.7s var(--ease);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background-position: 100% 0;
+  box-shadow: 0 18px 46px -14px color-mix(in srgb, var(--frost-cyan) 70%, transparent);
+}
+.btn-primary:hover::before {
+  transform: translateX(130%);
+}
+
+/* Ghost: a blue -> ember tint fades in behind the label. */
+.btn-ghost {
+  color: var(--text);
+  border-color: var(--glass-border);
+  background: color-mix(in srgb, var(--snow-0) 4%, transparent);
+  transition:
+    transform var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+.btn-ghost::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--frost-cyan) 24%, transparent),
+    color-mix(in srgb, var(--aurora-orange) 16%, transparent)
+  );
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.btn-ghost:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--frost-cyan) 55%, transparent);
+}
+.btn-ghost:hover::before {
+  opacity: 1;
 }
 
 /* ---------- Accessibility ---------- */

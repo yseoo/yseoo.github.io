@@ -18,7 +18,7 @@ export default function ExperiencePage() {
         <Reveal>
           <div className="section-head">
             <p className="eyebrow">Career &amp; studies</p>
-            <h1>Experience &amp; education</h1>
+            <h1 className="gradient-text">Experience &amp; education</h1>
             <p className="section-lead">
               My academic background, professional experience, and the activities
               I&apos;ve been involved in along the way.

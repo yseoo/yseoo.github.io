@@ -115,7 +115,7 @@ export default function ProjectModal({
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className={styles.link}
+                    className="btn btn-ghost btn-sm"
                   >
                     <Ico icon={linkIcon(link.label)} width={16} height={16} />
                     {link.label}

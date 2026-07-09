@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
 import SkillCard from "@/components/SkillCard";
 import Reveal from "@/components/Reveal";
 import { profile } from "@/content/profile";
@@ -12,6 +13,12 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <div className="container">
+        <Reveal>
+          <Stats />
+        </Reveal>
+      </div>
 
       <section className="section container" aria-labelledby="skills-heading">
         <Reveal>

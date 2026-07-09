@@ -10,24 +10,9 @@
   width: 100%;
 }
 
+/* Only spacing here — the button look comes from the global .btn classes. */
 .dropBtn {
-  display: inline-flex;
-  align-items: center;
   margin-top: var(--space-8);
-  padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: var(--step-0);
-  color: var(--night-0);
-  background: linear-gradient(135deg, var(--frost-cyan), var(--frost-blue));
-  box-shadow: 0 8px 24px -12px color-mix(in srgb, var(--frost-cyan) 80%, transparent);
-  transition:
-    transform var(--dur-fast) var(--ease),
-    box-shadow var(--dur) var(--ease);
-}
-.dropBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px -12px color-mix(in srgb, var(--frost-cyan) 90%, transparent);
 }
 
 /* 2x2 grid of contact channels */
@@ -68,6 +53,19 @@ a.card:hover {
   color: var(--frost-cyan);
   background: color-mix(in srgb, var(--frost-cyan) 12%, transparent);
   border: 1px solid color-mix(in srgb, var(--frost-cyan) 20%, transparent);
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+/* Icon tile pops on hover, echoing the hero's social buttons. */
+a.channel:hover .icon {
+  background: var(--accent);
+  color: var(--night-0);
+  border-color: transparent;
+  transform: scale(1.06);
 }
 
 .text {
@@ -78,6 +76,7 @@ a.card:hover {
 }
 
 .cLabel {
+  font-family: var(--font-mono);
   font-size: var(--step--1);
   letter-spacing: 0.1em;
   text-transform: uppercase;

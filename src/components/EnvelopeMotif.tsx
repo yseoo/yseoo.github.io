@@ -21,14 +21,14 @@ export default function EnvelopeMotif() {
           width="196"
           height="112"
           rx="12"
-          fill="rgba(122, 162, 214, 0.14)"
-          stroke="#7aa2d6"
+          fill="rgba(59, 130, 246, 0.14)"
+          stroke="#7aa2ff"
           strokeWidth="3"
         />
         <path
           d="M116,126 L210,186 L304,126"
           fill="none"
-          stroke="#81a1c1"
+          stroke="#7aa2ff"
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -36,17 +36,17 @@ export default function EnvelopeMotif() {
       </g>
 
       {/* paper plane flying out */}
-      <path className={styles.plane} d="M-9,-6 L11,0 L-9,6 L-3,0 Z" fill="#88c0d0" />
+      <path className={styles.plane} d="M-9,-6 L11,0 L-9,6 L-3,0 Z" fill="#f59e0b" />
 
       {/* twinkles */}
-      <circle className={styles.spark} cx="350" cy="70" r="3" fill="#eceff4" />
+      <circle className={styles.spark} cx="350" cy="70" r="3" fill="#eef1fb" />
       <circle
         className={styles.spark}
         style={{ animationDelay: "1.1s" }}
         cx="96"
         cy="96"
         r="2.6"
-        fill="#88c0d0"
+        fill="#7aa2ff"
       />
       <circle
         className={styles.spark}
@@ -54,7 +54,7 @@ export default function EnvelopeMotif() {
         cx="330"
         cy="250"
         r="2.6"
-        fill="#a3be8c"
+        fill="#f97316"
       />
     </svg>
   );

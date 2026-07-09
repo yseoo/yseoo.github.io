@@ -125,18 +125,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Autonomous Hydroponic Farm",
-    image: "/projects/proto_farm.png",
-    date: "Spring 2022",
-    category: "Hardware",
-    blurb:
-      "A self-regulating hydroponic farm managing heat, light, pH, and nutrient concentration for optimal plant growth — including custom-built sensors for nutrient concentration and pH from basic materials.",
-    tags: ["Sensor Systems", "Arduino", "Prototyping"],
-    links: [{ label: "Report", href: "/pdfs/sensor.pdf" }],
-  },
-  {
     title: "A Tale of Acting Careers",
-    image: "/projects/ada.webp",
+    image: "/projects/ada.png",
     date: "Winter 2023",
     category: "Data Science",
     blurb:
@@ -149,6 +139,16 @@ export const projects: Project[] = [
         href: "https://github.com/epfl-ada/ada-2023-project-lasempanadas",
       },
     ],
+  },
+  {
+    title: "Autonomous Hydroponic Farm",
+    image: "/projects/proto_farm.png",
+    date: "Spring 2022",
+    category: "Hardware",
+    blurb:
+      "A self-regulating hydroponic farm managing heat, light, pH, and nutrient concentration for optimal plant growth — including custom-built sensors for nutrient concentration and pH from basic materials.",
+    tags: ["Sensor Systems", "Arduino", "Prototyping"],
+    links: [{ label: "Report", href: "/pdfs/sensor.pdf" }],
   },
   {
     title: "MEMS Micro-Mirror Actuator",

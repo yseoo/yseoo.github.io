@@ -30,7 +30,7 @@ export default function Constellation() {
     let height = 0;
     let dpr = 1;
 
-    type Point = { x: number; y: number; vx: number; vy: number };
+    type Point = { x: number; y: number; vx: number; vy: number; warm: boolean };
     let points: Point[] = [];
 
     const LINK_DIST = 130; // px within which two points get a connecting line
@@ -43,6 +43,8 @@ export default function Constellation() {
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.18,
         vy: (Math.random() - 0.5) * 0.18,
+        // ~18% of points glow warm (ember), the rest electric blue.
+        warm: Math.random() < 0.18,
       }));
     }
 
@@ -69,8 +71,8 @@ export default function Constellation() {
           const dy = a.y - b.y;
           const dist = Math.hypot(dx, dy);
           if (dist < LINK_DIST) {
-            const alpha = (1 - dist / LINK_DIST) * 0.28;
-            ctx!.strokeStyle = `rgba(136, 192, 208, ${alpha})`;
+            const alpha = (1 - dist / LINK_DIST) * 0.26;
+            ctx!.strokeStyle = `rgba(122, 162, 255, ${alpha})`;
             ctx!.lineWidth = 1;
             ctx!.beginPath();
             ctx!.moveTo(a.x, a.y);
@@ -81,9 +83,11 @@ export default function Constellation() {
       }
 
       for (const p of points) {
-        ctx!.fillStyle = "rgba(143, 188, 187, 0.7)";
+        ctx!.fillStyle = p.warm
+          ? "rgba(249, 150, 60, 0.85)"
+          : "rgba(122, 162, 255, 0.7)";
         ctx!.beginPath();
-        ctx!.arc(p.x, p.y, 1.4, 0, Math.PI * 2);
+        ctx!.arc(p.x, p.y, p.warm ? 1.9 : 1.4, 0, Math.PI * 2);
         ctx!.fill();
       }
     }

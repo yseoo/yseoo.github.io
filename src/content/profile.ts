@@ -31,6 +31,11 @@ export type SocialLink = {
   icon: string; // Iconify name
 };
 
+export type Stat = {
+  value: string;
+  label: string;
+};
+
 export const profile = {
   name: "Killian Hinard",
   role: "Computer Vision & AI Engineer",
@@ -61,6 +66,14 @@ export const profile = {
       value: "Computer Vision · Machine Learning",
     },
   ] satisfies Highlight[],
+
+  // Headline numbers shown in the stat band on the home page.
+  stats: [
+    { value: "MSc", label: "Robotics · Data Science @ EPFL" },
+    { value: "5.52", label: "Master's GPA / 6" },
+    { value: "15", label: "Projects archived" },
+    { value: "2", label: "Internship CV research" },
+  ] satisfies Stat[],
 
   email: "killian.hd@gmail.com",
   socials: [

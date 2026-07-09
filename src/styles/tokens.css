@@ -1,40 +1,36 @@
 /**
  * tokens.css — the single source of truth for the visual design.
  *
- * Everything (colors, type, spacing, glass surfaces, motion) is defined here as
- * CSS custom properties ("variables"). Components never hardcode a hex value or
- * a pixel size — they reference these tokens. Retheme the whole site by editing
- * this one file.
- *
- * Palette: Nord "Polar Night" (dark base) + "Frost" (cool accents) + "Snow
- * Storm" (text), tuned a touch deeper for a nighttime feel.
+ * Palette: "Navy + Ember" — a deep navy base lit by an electric-blue primary
+ * and a warm amber/orange counter-accent. Token NAMES are kept stable so every
+ * component rethemes automatically from this one file.
  */
 
 :root {
-  /* ---- Polar Night: backgrounds, from deepest to raised surfaces ---- */
-  --night-0: #20242e; /* page background (deepest) */
-  --night-1: #2e3440; /* Nord0 — base surface */
-  --night-2: #3b4252; /* Nord1 — raised surface */
-  --night-3: #434c5e; /* Nord2 — hairlines / borders */
-  --night-4: #4c566a; /* Nord3 — muted borders / disabled */
+  /* ---- Navy: backgrounds, deepest to raised surfaces ---- */
+  --night-0: #0e1220; /* page background (deepest) */
+  --night-1: #131a30; /* base surface */
+  --night-2: #1a2340; /* raised / glass surface */
+  --night-3: #2a3556; /* hairlines / borders */
+  --night-4: #38456b; /* muted borders */
 
-  /* ---- Snow Storm: text ---- */
-  --snow-0: #eceff4; /* primary text / headings */
-  --snow-1: #d8dee9; /* body text */
-  --snow-2: #9aa5b8; /* muted text / captions (custom dim) */
+  /* ---- Text ---- */
+  --snow-0: #eef1fb; /* headings / primary */
+  --snow-1: #d5dbf0; /* body */
+  --snow-2: #98a2c2; /* muted / captions */
 
-  /* ---- Frost: cool accents ---- */
-  --frost-teal: #8fbcbb; /* Nord7 */
-  --frost-cyan: #88c0d0; /* Nord8 — PRIMARY accent */
-  --frost-blue: #81a1c1; /* Nord9 */
-  --frost-deep: #5e81ac; /* Nord10 */
+  /* ---- Blue accents (name kept "frost-*" for stable theming) ---- */
+  --frost-cyan: #3b82f6; /* PRIMARY accent (electric blue) */
+  --frost-blue: #7aa2ff; /* light blue */
+  --frost-teal: #60a5fa; /* blue-400 */
+  --frost-deep: #2563eb; /* solid blue */
 
-  /* ---- Aurora: reserved, used sparingly for status/highlights ---- */
-  --aurora-green: #a3be8c;
-  --aurora-purple: #b48ead;
-  --aurora-red: #bf616a;
-  --aurora-orange: #d08770;
-  --aurora-yellow: #ebcb8b;
+  /* ---- Warm + status accents (used sparingly) ---- */
+  --aurora-orange: #f97316;
+  --aurora-yellow: #f59e0b;
+  --aurora-green: #34d399;
+  --aurora-purple: #6366f1; /* indigo bridge */
+  --aurora-red: #f43f5e;
 
   /* ---- Semantic aliases (prefer these in components) ---- */
   --bg: var(--night-0);
@@ -43,36 +39,44 @@
   --text-muted: var(--snow-2);
   --accent: var(--frost-cyan);
   --accent-soft: var(--frost-blue);
-  --border: color-mix(in srgb, var(--night-3) 70%, transparent);
+  --border: color-mix(in srgb, var(--night-3) 78%, transparent);
+
+  /* The signature blue -> ember gradient, used on titles. */
+  --grad: linear-gradient(
+    100deg,
+    #7aa2ff 0%,
+    var(--frost-cyan) 42%,
+    var(--aurora-yellow) 82%,
+    var(--aurora-orange) 100%
+  );
 
   /* ---- Glass surfaces ---- */
-  /* Translucent panels sit over the night background with a blur behind them. */
-  --glass-bg: color-mix(in srgb, var(--night-2) 55%, transparent);
-  --glass-bg-strong: color-mix(in srgb, var(--night-2) 78%, transparent);
+  --glass-bg: color-mix(in srgb, var(--night-2) 52%, transparent);
+  --glass-bg-strong: color-mix(in srgb, var(--night-2) 80%, transparent);
   --glass-border: color-mix(in srgb, var(--snow-0) 9%, transparent);
   --glass-highlight: color-mix(in srgb, var(--snow-0) 14%, transparent);
   --glass-blur: 16px;
-  --glass-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.55);
+  --glass-shadow: 0 10px 34px -16px rgba(0, 0, 0, 0.7);
   --glass-glow: 0 0 0 1px color-mix(in srgb, var(--frost-cyan) 35%, transparent),
-    0 12px 40px -14px color-mix(in srgb, var(--frost-cyan) 30%, transparent);
+    0 16px 44px -18px color-mix(in srgb, var(--frost-cyan) 45%, transparent);
 
-  /* ---- Typography: Helvetica family, as requested ---- */
+  /* ---- Typography: Helvetica family ---- */
   --font-sans: "Helvetica Neue", Helvetica, "Inter", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 
-  /* Type scale (fluid: clamp(min, preferred-vw, max)) */
+  /* Type scale (fluid) */
   --step--1: clamp(0.78rem, 0.74rem + 0.2vw, 0.85rem);
-  --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem); /* body */
+  --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
   --step-1: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);
   --step-2: clamp(1.45rem, 1.25rem + 1vw, 1.85rem);
   --step-3: clamp(1.9rem, 1.5rem + 2vw, 2.6rem);
-  --step-4: clamp(2.6rem, 1.9rem + 3.4vw, 4rem); /* hero display */
+  --step-4: clamp(2.6rem, 1.9rem + 3.4vw, 4rem);
   --step-5: clamp(3.4rem, 2.3rem + 5vw, 5.5rem);
 
   --tracking-tight: -0.02em;
-  --tracking-eyebrow: 0.24em; /* uppercase labels */
+  --tracking-eyebrow: 0.26em;
 
-  /* ---- Spacing scale (rem) ---- */
+  /* ---- Spacing ---- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -95,7 +99,7 @@
   --content-narrow: 760px;
 
   /* ---- Motion ---- */
-  --ease: cubic-bezier(0.22, 1, 0.36, 1); /* smooth "out-expo"-ish */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-fast: 180ms;
   --dur: 300ms;
   --dur-slow: 600ms;
