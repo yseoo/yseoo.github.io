@@ -1,7 +1,8 @@
-# killianhinard.com
+# Personal Portfolio
 
-Personal portfolio of Killian Hinard — a Computer Vision & AI engineer. Built as
-a statically-exported [Next.js](https://nextjs.org) site and deployed to GitHub
+<img width="2547" height="1227" alt="image" src="https://github.com/user-attachments/assets/3ca8932a-82f8-4fb0-9ee8-35d8848582a6" />
+
+My Personal portfolio. Built as a statically-exported [Next.js](https://nextjs.org) site and deployed to GitHub
 Pages. Live at **[killianhinard.com](https://killianhinard.com)**.
 
 The project is intentionally simple to fork and adapt: all copy lives in a few
