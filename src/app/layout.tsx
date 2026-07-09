@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { profile } from "@/content/profile";
@@ -21,6 +21,30 @@ export const metadata: Metadata = {
     url: "https://killianhinard.com",
     type: "website",
   },
+  manifest: "/favicons/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicons/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicons/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [{ url: "/favicons/apple-touch-icon.png", sizes: "180x180" }],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/favicons/safari-pinned-tab.svg",
+        color: "#3b82f6",
+      },
+    ],
+  },
+  other: {
+    "msapplication-TileColor": "#0e1220",
+    "msapplication-config": "/favicons/browserconfig.xml",
+  },
+};
+
+// Browser UI theme color (address bar on mobile, etc.).
+export const viewport: Viewport = {
+  themeColor: "#0e1220",
 };
 
 /**
