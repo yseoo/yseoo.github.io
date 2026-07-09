@@ -1,9 +1,8 @@
 import styles from "./GraduationCap.module.css";
 
 /**
- * GraduationCap — the animated header motif for the Experience page: a floating
- * mortarboard with a swaying tassel and twinkling sparkles. Pure SVG + CSS
- * (Server Component). Ported from the old site.
+ * Animated header motif for the Experience page: a floating mortarboard with a
+ * swaying tassel and twinkling sparkles. Pure SVG animated with CSS.
  */
 
 // 4-point star ("sparkle") path centered on (0,0) for a given size.

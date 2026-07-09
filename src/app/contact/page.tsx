@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import Ico from "@/components/Ico";
 import EnvelopeMotif from "@/components/EnvelopeMotif";
@@ -10,17 +11,18 @@ export const metadata: Metadata = {
   description: "Get in touch with Killian Hinard.",
 };
 
+type Channel = {
+  icon: string;
+  label: string;
+  value: string;
+  href: string | null; // null renders a static card instead of a link
+};
+
 export default function ContactPage() {
   const github = profile.socials.find((s) => s.label === "GitHub");
   const linkedin = profile.socials.find((s) => s.label === "LinkedIn");
 
-  // The contact channels shown as a 2x2 grid. `href` null = not a link.
-  const channels: {
-    icon: string;
-    label: string;
-    value: string;
-    href: string | null;
-  }[] = [
+  const channels: Channel[] = [
     {
       icon: "mdi:email-outline",
       label: "Email",
@@ -49,60 +51,58 @@ export default function ContactPage() {
 
   return (
     <div className="section container">
-      <div className={styles.header}>
-        <Reveal>
-          <div className="section-head">
-            <p className="eyebrow">Get in touch</p>
-            <h1 className="gradient-text">Let&apos;s Talk!</h1>
-            <p className="section-lead">
-              If you have any questions or would like to discuss potential
-              opportunities, please don&apos;t hesitate to contact me. I&apos;m
-              always open to new connections and look forward to hearing from
-              you!
-            </p>
-            <a
-              href={`mailto:${profile.email}`}
-              className={`btn btn-primary ${styles.dropBtn}`}
-            >
-              Drop a mail
-              <span className="btn-arrow" aria-hidden="true">
-                →
-              </span>
-            </a>
-          </div>
-        </Reveal>
-        <div className={styles.motif} aria-hidden="true">
-          <EnvelopeMotif />
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Get in touch"
+        title="Let's Talk!"
+        lead="If you have any questions or would like to discuss potential opportunities, please don't hesitate to contact me. I'm always open to new connections and look forward to hearing from you!"
+        motif={<EnvelopeMotif />}
+      >
+        <a
+          href={`mailto:${profile.email}`}
+          className={`btn btn-primary ${styles.dropBtn}`}
+        >
+          Drop a mail
+          <span className="btn-arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+      </PageHeader>
 
       <Reveal>
         <div className={styles.grid}>
-          {channels.map((c) => {
+          {channels.map((channel) => {
             const inner = (
               <>
                 <span className={styles.icon}>
-                  <Ico icon={c.icon} width={22} height={22} aria-hidden="true" />
+                  <Ico
+                    icon={channel.icon}
+                    width={22}
+                    height={22}
+                    aria-hidden="true"
+                  />
                 </span>
                 <span className={styles.text}>
-                  <span className={styles.cLabel}>{c.label}</span>
-                  <span className={styles.cValue}>{c.value}</span>
+                  <span className={styles.cLabel}>{channel.label}</span>
+                  <span className={styles.cValue}>{channel.value}</span>
                 </span>
               </>
             );
 
-            return c.href ? (
+            return channel.href ? (
               <a
-                key={c.label}
-                href={c.href}
-                target={c.href.startsWith("mailto") ? undefined : "_blank"}
+                key={channel.label}
+                href={channel.href}
+                target={channel.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noreferrer"
                 className={`glass ${styles.card}`}
               >
                 {inner}
               </a>
             ) : (
-              <div key={c.label} className={`glass ${styles.card} ${styles.plain}`}>
+              <div
+                key={channel.label}
+                className={`glass ${styles.card} ${styles.plain}`}
+              >
                 {inner}
               </div>
             );

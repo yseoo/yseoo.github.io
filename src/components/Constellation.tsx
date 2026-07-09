@@ -3,15 +3,9 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Constellation — the hero's signature: drifting points connected by hairlines,
- * in frost cyan, over the night background. Hand-written on a <canvas> because
- * this kind of generative, per-frame drawing is outside what Framer Motion does.
- *
- * React concepts on show:
- *  - useRef: a stable handle to the real <canvas> DOM node (doesn't cause
- *    re-renders when it changes).
- *  - useEffect: runs setup *after* mount and returns a cleanup function that
- *    tears everything down on unmount — so we never leak an animation loop.
+ * Animated hero background: drifting points connected by short hairlines, drawn
+ * on a <canvas> with requestAnimationFrame. The loop pauses while the tab is
+ * hidden and renders a single static frame when reduced motion is preferred.
  */
 export default function Constellation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

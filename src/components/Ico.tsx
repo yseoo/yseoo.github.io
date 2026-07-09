@@ -3,9 +3,9 @@
 import { Icon, type IconProps } from "@iconify/react";
 
 /**
- * Ico — a thin Client Component wrapper around Iconify's <Icon>. Because it's
- * a client component, Server Components (like Timeline) can render it to show
- * an icon without themselves becoming client components.
+ * Client-side wrapper around Iconify's <Icon>. Confining the "use client"
+ * boundary here lets Server Components render icons without becoming client
+ * components themselves.
  */
 export default function Ico(props: IconProps) {
   return <Icon {...props} />;

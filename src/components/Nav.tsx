@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import styles from "./Nav.module.css";
 
-// The navigation model — one place to add/rename/reorder links.
+// Primary navigation links, in display order.
 const LINKS = [
   { href: "/", label: "Home" },
   { href: "/experience", label: "Experience" },
@@ -14,13 +14,11 @@ const LINKS = [
 ];
 
 export default function Nav() {
-  // `usePathname` gives the current URL path, so we can mark the active link.
   const pathname = usePathname();
-  // `useState` holds the open/closed state of the mobile menu. `setOpen`
-  // updates it and triggers a re-render.
+  // Open/closed state of the mobile menu.
   const [open, setOpen] = useState(false);
 
-  // Treat "/experience/" and "/experience" the same (trailingSlash is on).
+  // Match with or without a trailing slash (trailingSlash is enabled).
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 

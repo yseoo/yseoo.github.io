@@ -1,10 +1,10 @@
 /**
- * profile.ts — identity, hero copy, "at a glance" highlights, social links,
- * and skills. Plain typed data: edit here to update the site; components read it.
+ * Site identity and home-page content: hero copy, "at a glance" highlights,
+ * headline stats, social links, and skill groups. Editing this file updates the
+ * corresponding sections; components read from the exported `profile` object.
  */
 
-// A `type` describes the shape of a value. TypeScript then checks every use of
-// it, so a typo like `highlight.lable` becomes an error while you type.
+/** One row of the hero "at a glance" card. */
 export type Highlight = {
   icon: string; // Iconify name
   label: string;

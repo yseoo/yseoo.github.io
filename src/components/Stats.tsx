@@ -2,8 +2,8 @@ import { profile } from "@/content/profile";
 import styles from "./Stats.module.css";
 
 /**
- * Stats — a row of headline-number glass cards. Server Component; the numbers
- * use the blue->ember gradient (the global .gradient-text utility).
+ * Row of headline-number glass cards shown on the home page. Values and labels
+ * are read from `profile.stats`.
  */
 export default function Stats() {
   return (

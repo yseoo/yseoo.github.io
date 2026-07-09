@@ -5,8 +5,8 @@ import { profile } from "@/content/profile";
 import "./globals.css";
 
 /**
- * metadata — Next reads this object at build time and generates the <title>
- * and <meta> tags. This replaces the old SeoHeader + react-helmet setup.
+ * Site-wide metadata. Next.js reads this at build time to generate the document
+ * <title> and social/meta tags; each page extends it through its own `metadata`.
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://killianhinard.com"),
@@ -24,9 +24,8 @@ export const metadata: Metadata = {
 };
 
 /**
- * RootLayout — the shell wrapped around every page. It renders the <html>/<body>
- * document itself; `children` is the active page, injected between Nav and Footer.
- * A Server Component (no "use client"): pure HTML, no JS shipped.
+ * Root layout wrapping every page: renders the document shell plus the
+ * persistent navigation and footer. `children` is the active page.
  */
 export default function RootLayout({
   children,

@@ -1,21 +1,9 @@
-.header {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: var(--space-8);
-  margin-bottom: var(--space-24);
-}
-
-.motif {
-  width: 100%;
-}
-
-/* Only spacing here — the button look comes from the global .btn classes. */
+/* Spacing only; the button appearance comes from the global .btn classes. */
 .dropBtn {
   margin-top: var(--space-8);
 }
 
-/* 2x2 grid of contact channels */
+/* 2x2 grid of contact channels. */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -33,7 +21,7 @@
     box-shadow var(--dur) var(--ease);
 }
 
-/* Links lift on hover; the static "Based in" card doesn't. */
+/* Linked channels lift on hover; the static "Based in" card does not. */
 a.card:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--frost-cyan) 40%, transparent);
@@ -60,8 +48,8 @@ a.card:hover {
     border-color var(--dur) var(--ease);
 }
 
-/* Icon tile pops on hover, echoing the hero's social buttons. */
-a.channel:hover .icon {
+/* Icon tile fills and pops on hover, echoing the hero's social buttons. */
+a.card:hover .icon {
   background: var(--accent);
   color: var(--night-0);
   border-color: transparent;
@@ -89,15 +77,6 @@ a.channel:hover .icon {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-@media (max-width: 900px) {
-  .header {
-    grid-template-columns: 1fr;
-  }
-  .motif {
-    display: none;
-  }
 }
 
 @media (max-width: 560px) {

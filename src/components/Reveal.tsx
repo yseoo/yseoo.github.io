@@ -4,12 +4,9 @@ import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
 /**
- * Reveal — fades and lifts its children into view the first time they're
- * scrolled to. A Client Component: it relies on the browser's IntersectionObserver
- * (through Framer Motion's `whileInView`), which can't run in a Server Component.
- *
- * If the visitor prefers reduced motion, we skip the animation entirely and
- * render the content as-is.
+ * Fades and lifts its children into view the first time they are scrolled to,
+ * using Framer Motion's `whileInView`. Renders children unchanged when the user
+ * prefers reduced motion.
  */
 type RevealProps = {
   children: ReactNode;

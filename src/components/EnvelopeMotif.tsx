@@ -1,9 +1,8 @@
 import styles from "./EnvelopeMotif.module.css";
 
 /**
- * EnvelopeMotif — the animated header motif for the Contact page: a floating
- * envelope with a paper plane looping out of it and a few twinkles. Pure SVG +
- * CSS (Server Component). Ported from the old site.
+ * Animated header motif for the Contact page: a floating envelope with a paper
+ * plane looping out of it and a few twinkles. Pure SVG animated with CSS.
  */
 export default function EnvelopeMotif() {
   return (

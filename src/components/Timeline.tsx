@@ -4,9 +4,9 @@ import Ico from "./Ico";
 import styles from "./Timeline.module.css";
 
 /**
- * Timeline — renders one resume section (Education, Experience, …) as a vertical
- * rail of glass cards. Server Component. Each card is wrapped in <Reveal> so it
- * animates in as you scroll. An optional `icon` (Iconify name) sits by the title.
+ * Renders one resume section (Education, Experience, …) as a vertical rail of
+ * glass cards, each revealed on scroll. An optional `icon` (Iconify name) is
+ * shown beside the section title.
  */
 export default function Timeline({
   section,
@@ -47,7 +47,7 @@ export default function Timeline({
                 </p>
                 <ul className={styles.points}>
                   {item.points.map((point) => {
-                    // GPA / grade lines get a highlighted orange diamond marker.
+                    // GPA / grade lines are highlighted with a distinct marker.
                     const isStat = /^(GPA|Grade)\b/.test(point);
                     return (
                       <li key={point} className={isStat ? styles.stat : undefined}>
